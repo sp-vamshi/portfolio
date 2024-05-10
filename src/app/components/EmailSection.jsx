@@ -15,7 +15,7 @@ export default function EmailSection() {
     const data = {
       email: e.target.email.value,
       subject: e.target.subject.value,
-      message: e.target.message,
+      message: e.target.message.value,
     };
 
     const JSONData = JSON.stringify(data);
@@ -31,10 +31,9 @@ export default function EmailSection() {
 
     const response = await fetch(endPoint, options);
     const resData = await response.json();
-    console.log(resData)
 
     if (response.status === 200 ) {
-      console.log("Message sent.");
+      setEmailSubmitted(true);
     }
   };
 
