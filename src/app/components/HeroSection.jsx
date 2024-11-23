@@ -44,7 +44,6 @@ function HeroSection() {
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl font-semibold">
             Let&apos;s Connect and Code with Purpose, Build with Passion.
           </p>
-          ``
           <div>
             <button onClick={handleHireMe} className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-200 text-white">
               Hire Me
