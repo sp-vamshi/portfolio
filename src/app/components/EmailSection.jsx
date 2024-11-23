@@ -45,7 +45,7 @@ export default function EmailSection() {
   };
 
   return (
-    <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
+    <section id="email" className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="z-10">
         <h5 className="text-xl font-bold text-white my-2">Let&apos;s Connect</h5>
@@ -133,7 +133,7 @@ export default function EmailSection() {
             }
           </div>
           {/* <div className="border-t-[#bec4e4] border-b-2 mt-4 text-white"></div> */}
-          <p className="text-white text-sm font-medium mt-4">Send me a direct email at  {" "} <a href="mailto:spvamshi22@gmail.com" className="font-bold text-primary-500 text-sm mb-2">spvamshi22@gmail.com</a></p>
+          <p className="text-white text-right text-sm font-medium mt-4">Send me a direct email at  {" "} <a href="mailto:spvamshi22@gmail.com" className="font-bold text-primary-500 text-sm mb-2">spvamshi22@gmail.com</a></p>
         </form>
       </div>
     </section>
