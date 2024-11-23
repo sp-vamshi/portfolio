@@ -15,7 +15,7 @@ const TAB_DATA = [
         <li>Next.js</li>
         <li>Express</li>
         <li>PostgreSQL</li>
-        <li>Sequelize</li>
+        <li>MongoDB</li>
       </ul>
     ),
   },
@@ -24,8 +24,8 @@ const TAB_DATA = [
     id: "Experience",
     content: (
       <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
+        <li>Software Developer | Kodecorp Technology Solutions | 2023 - Present </li>
+        <li>MERN Developer (Internship)</li>
       </ul>
     ),
   },
@@ -34,8 +34,8 @@ const TAB_DATA = [
     id: "Education",
     content: (
       <ul className="list-disc pl-2">
-        <li>Fullstack Academy of Code</li>
-        <li>University of California, Santa Cruz</li>
+        <li>B.Com Computer Applications</li>
+        <li>Osmania University, Hyderabad</li>
       </ul>
     ),
   },
@@ -59,9 +59,8 @@ export default function AboutSection() {
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
             I am fullstack web developer with a passion for creating interactive
-            web applications. I have experience working awith Javascript, React,
-            Redux, Node.js, Express, PostgresSQL,MongoDB, Mongoose, Sequelize,
-            HTML, CSS, Bootstrap, Material UI, Tailwind and Git.
+            web applications. I have experience working awith Javascript, React.js, Next.js,
+            Redux, Node.js, Express, PostgresSQL, MongoDB, Material UI, Tailwind and Git.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton

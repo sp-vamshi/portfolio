@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ProjectCard({ imgUrl, title, description, gitUrl, previewUrl }) {
   return (
-    <div>
+    <>
       <div
         className="h-52 md:h-72 rounded-t-xl relative group"
         style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
@@ -30,6 +30,6 @@ export default function ProjectCard({ imgUrl, title, description, gitUrl, previe
         <h5 className="text-xl font-semibold mb-2">{title}</h5>
         <p className="text-[#ADB7BE]">{description}</p>
       </div>
-    </div>
+    </>
   );
 }

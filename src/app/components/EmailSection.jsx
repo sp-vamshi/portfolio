@@ -4,37 +4,44 @@ import LinkedinIcon from "../../../public/linkedin.svg";
 import GithubIcon from "../../../public/github.svg";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from '@emailjs/browser';
 
 export default function EmailSection() {
 
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [emailSubmitting, setEmailSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState({});
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      email: e.target.email.value,
+      from_mail: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
+      to_name: "Vamshi Sasupalli",
     };
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicId = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID
 
-    const JSONData = JSON.stringify(data);
-    const endPoint = "/api/send";
-
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSONData,
-    };
-
-    const response = await fetch(endPoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200 ) {
-      setEmailSubmitted(true);
+    try {
+      setEmailSubmitting(true)
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        data,
+        publicId
+      )
+      if (response?.text == 'OK') {
+        setResponseMessage({ success: "Email sent successfully." })
+        setEmailSubmitting(false)
+      }
+    } catch (error) {
+      setResponseMessage({ error: "Unable to send email at the moment 😕." })
+      setEmailSubmitting(false)
     }
+
+
   };
 
   return (
@@ -48,16 +55,16 @@ export default function EmailSection() {
           to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href={"#"}>
+          <Link target="_blank" href={"https://www.linkedin.com/in/vamshi-sasupilli"}>
             <Image src={LinkedinIcon} alt="LinkedIn" />
           </Link>
-          <Link href={"#"}>
+          <Link target="_blank" href={"https://github.com/sp-vamshi/"}>
             <Image src={GithubIcon} alt="LinkedIn" />
           </Link>
         </div>
       </div>
       <div>
-        <form className="flex flex-col" onSubmit={handleSubmit}>
+        <form id="contactForm" className="flex flex-col" onSubmit={handleSubmit}>
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -108,17 +115,25 @@ export default function EmailSection() {
           </div>
           <button
             type="submit"
+            id="submitBtn"
+            disabled={emailSubmitting}
             className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
           >
             Send Message
           </button>
-          {
-            emailSubmitted && (
-              <p className="text-green-500 text-sm mt-2">Email sent successfully!</p>
-            )
+          <div>
 
-          }
+            {responseMessage.success &&
+              <p className="text-green-500 text-sm mt-2">{responseMessage?.success}</p>
+            }
 
+            {
+              responseMessage.error &&
+              <p className="text-red-500 text-sm mt-2">{responseMessage?.error}</p>
+            }
+          </div>
+          {/* <div className="border-t-[#bec4e4] border-b-2 mt-4 text-white"></div> */}
+          <p className="text-white text-sm font-medium mt-4">Send me a direct email at  {" "} <a href="mailto:spvamshi22@gmail.com" className="font-bold text-primary-500 text-sm mb-2">spvamshi22@gmail.com</a></p>
         </form>
       </div>
     </section>

@@ -6,8 +6,8 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Realtime Chat Website",
-    description: "Project 1 description",
+    title: "Chatter Box",
+    description: "A Real Time Chat Application",
     image: "/Images/projects/image2.png",
     tag: ["Web"],
     gitUrl: "https://github.com/sp-vamshi/ChatApp",
@@ -15,21 +15,12 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Fitness Landing Page",
-    description: "Project 2 description",
+    title: "Get Fit",
+    description: "A Fitness Landing Page",
     image: "/Images/projects/image1.png",
     tag: ["Web"],
     gitUrl: "https://github.com/sp-vamshi/fitness-app",
     previewUrl: "https://getfitbyabhi.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Realtime Chat Website",
-    description: "Project 1 description",
-    image: "/Images/projects/image2.png",
-    tag: ["Web"],
-    gitUrl: "https://github.com/sp-vamshi/ChatApp",
-    previewUrl: "https://chatter-box-flame.vercel.app/",
   },
 ];
 

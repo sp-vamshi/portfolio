@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import Logo from "./Logo"
 
 const navLinks = [
   {
@@ -22,7 +23,6 @@ const navLinks = [
 
 export default function Navbar() {
   const [navbarOpen, setNavBarOpen] = useState(false);
-  console.log(navbarOpen)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
@@ -31,7 +31,7 @@ export default function Navbar() {
           className="text-2xl md:text-4xl text-white font-semibold"
           href={"/"}
         >
-          LOGO
+          <Logo />
         </Link>
         <div className="mobile-menu block md:hidden">
           {navbarOpen ? (
